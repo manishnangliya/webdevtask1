@@ -1,0 +1,22 @@
+{% import "bootstrap/wtf.html" as wtf %}
+<link rel="shortcut icon" href="{{ url_for('static',filename='img.png') }}" type="image/x-icon">
+<link rel="icon" href="{{ url_for('static', filename='img.png') }}" type="image/x-icon">
+
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> Contact Form</title>
+        
+        <style>
+            {% block style %}
+            {% endblock %}
+        </style>
+    </head>
+
+{% block body %} {% endblock %}
+
+{% block content %}
+
+{% endblock %}

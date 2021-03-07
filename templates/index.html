@@ -1,0 +1,110 @@
+
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block style %}
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "montserrat",sans-serif;
+    background-color: #a7c5eb;
+}
+
+.contact-section{
+    background-size: cover;
+    margin-top: 150px;
+    padding: 40px 0;
+}
+
+h1{
+    padding-top: 50px;
+    text-align: center;
+    color: rgb(14, 1, 1);
+}
+.form-tag{
+     display:flex;
+     align-items: center;
+     justify-items:center;
+     flex-direction:column;
+    height: 100%;
+    width: 100%;
+  
+}
+.form-tag h1{
+    margin-bottom:30px;
+
+}
+
+.c1,.c1,.c2,.c3{
+    width:250px;
+    display: block;
+    margin: 5px;
+    padding: 10px;
+    border-radius: 7%;
+ }
+ .c4{
+        width: 250px;
+        height: 100px;
+        border-radius: 7%;
+ }
+ .c5 {
+
+    display: block;
+    position: absolute;
+    top: 87%;
+    left: 47%;
+    color:#f9f3f3;
+    background: #c5d7bd;
+    margin: 5px;
+    padding: 10px;
+    border-radius: 20%;
+ }
+ .c5:hover{
+     cursor: pointer;
+ }
+ .close{
+     position: absolute;
+     cursor: pointer;
+     border: none;
+     outline: none;
+     background: none;
+     color: white;
+     float: right;
+     transition: 0.3s;
+ }
+ .alert{
+     padding:10px;
+     text-align:center;
+     background-color:#47c35a;
+     color:white;
+ }
+{% endblock %}
+
+
+{% block body %}
+    <body>
+        <div>
+            <div class="container">
+                {% for message in get_flashed_messages() %}
+                    <div class="alert alert-warning">
+                        {{ message }}
+                        <span class="close" onclick="this.parentElement.style.display='none';">&times;</span>
+                    </div>
+                {% endfor %}
+            </div>
+            <form method="POST">
+                    {{ form.hidden_tag() }}
+                    <div class="form-tag">
+                        <h1>CONTACT FORM</h1>
+                        {{ form.name.label }}{{ form.name(class="c1") }} <br>
+                        {{ form.email.label }}{{ form.email(class="c2")  }} <br>
+                        {{ form.subject.label }}{{ form.subject(class="c3") }} <br>
+                        {{ form.message.label }}{{ form.message(class="c4") }} <br>
+                        {{ form.submit(class="c5") }}
+                    </div>
+            </form>
+        </div>
+    </body>
+
+</html>
+
+{% endblock %}
